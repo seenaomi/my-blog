@@ -20,7 +20,7 @@ class Post(models.Model):
 		return self.title
 
 	def approved_comment(self):
-		return self.comments.filter(approved_comment=True)	
+		return self.comment.filter(approved_comment=True)	
 
 
 class Comment(models.Model):
