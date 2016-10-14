@@ -1,18 +1,24 @@
+body {
+  font-size: 100%;
+}
+@media(min-width:60em){body{font-size: 100%}}
+
+
 .page-header {
     background-color: #20B2AA;
     margin-top: 0;
-    padding: 20px 20px 20px 40px;
+    padding: 1.250em 1.250em 1.250em 2.500em;
 }
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
     color: #ffffff;
-    font-size: 36pt;
-    margin-top: -5px;
+    font-size: 2.000em;
+    margin-top: -0.313em;
     text-decoration: none;
 }
 
 .content {
-    margin-left: 40px;
+    margin-left: 2.500em;
 }
 
 h1, h2, h3, h4 {
@@ -21,7 +27,7 @@ h1, h2, h3, h4 {
 
 .date {
     color: #828282;
-    margin-bottom: 5px;
+    margin-bottom: 0.313em;
 }
 
 .save {
@@ -35,31 +41,38 @@ h1, h2, h3, h4 {
 .top-menu, .top-menu:hover, .top-menu:visited {
     color: #ffffff;
     float: right;
-    font-size: 26pt;
-    margin-right: 20px;
+    font-size: 2.050em;
+    margin-right: .550em;
+    text-decoration: none;
 }
 
 .top-intro, .top-intro:hover, .top-intro:visited {
     color: #ffffff;
     display: inline-block;
-    font-size: 12pt;
+    font-size: 1.200em;
+    text-decoration: none;
 }
 
 .top-lock, .top-lock:hover, .top-lock:visited {
     color: #ffffff;
     float: right;
-    font-size: 20pt;
-    margin-right: 20px;
+    font-size: 1.375em;
+    margin-right: .550em;
+    text-decoration: none;
+}
+
+.fa-unlock {
+    color: #ffffff;
 }
 
 .login-btn {
-    margin-top: 10px;
-    padding: 5px 0px 5px 0px;
+    margin-top: 0.625em;
+    padding: 0.313em 0 0.313em 0;
 }
 
 
 .post {
-    margin-bottom: 70px;
+    margin-bottom: 4.375em;
 }
 
 .post h1 a, .post h1 a:visited {
@@ -67,5 +80,5 @@ h1, h2, h3, h4 {
 }
 
 .comment {
-    margin: 20px 0px 20px 20px;
+    margin: 1.250em 0 1.250em 1.250em;
 }
