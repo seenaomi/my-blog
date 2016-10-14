@@ -1,7 +1,7 @@
-body {
+html {
   font-size: 100%;
 }
-@media(min-width:60em){body{font-size: 100%}}
+@media(min-width:60em){html{font-size: 100%}}
 
 
 .page-header {
