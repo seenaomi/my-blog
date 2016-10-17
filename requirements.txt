@@ -1,7 +1,12 @@
 dj-database-url==0.4.1
 Django==1.9.10
+django-ckeditor==5.1.1
+django-colorful==1.2
+django-extensions==1.7.4
 django-fontawesome==0.2.6
 gunicorn==19.6.0
+Pillow==3.4.1
 psycopg2==2.6.2
 PyYAML==3.12
+six==1.10.0
 whitenoise==3.2.2
