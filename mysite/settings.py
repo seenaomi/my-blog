@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -118,6 +120,15 @@ USE_L10N = True
 
 USE_TZ = True
 
+# Media files (images, video, sound)
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# For using the CKEditor form toolbar
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_IMAGE_BACKEND = "pillow"    
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
@@ -127,7 +138,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Registration/login 
 
+CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
+
 LOGIN_REDIRECT_URL = '/'
+
+# For deploying to Heroku
 
 import dj_database_url
 DATABASES['default'] = dj_database_url.config()
@@ -142,3 +157,4 @@ try:
     from .local_settings import *
 except ImportError:
     pass
+

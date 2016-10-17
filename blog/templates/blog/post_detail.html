@@ -15,7 +15,7 @@
         	<a class="btn btn-default" href="{% url 'post_remove' pk=post.pk %}"><span class="fa fa-times"> Delete</span></a>
         {% endif %}	
         <h1>{{ post.title }}</h1>
-        <p>{{ post.text|linebreaksbr }}</p>
+        <p>{{ post.content|safe|linebreaksbr }}</p>
     </div>
     <hr>
     <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}"><span class="fa fa-comment"> Add Comment</span></a>
