@@ -1,5 +1,7 @@
 from django.db import models
 from django.utils import timezone
+from colorful.fields import RGBColorField
+
 
 
 class Post(models.Model):
@@ -36,3 +38,9 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.text
+
+class Tag(models.Model):
+    color = RGBColorField()
+        
+
+

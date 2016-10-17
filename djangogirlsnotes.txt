@@ -1,0 +1,93 @@
+﻿https://tutorial.djangogirls.org/en/django_installation/
+
+Creating a virtualenv on both Linux and OS X is as simple as running python3 -m venv myvenv. It will look like this:
+command-line
+$ python3 -m venv myvenv
+
+Start your virtual environment by running:
+command-line
+$ source myvenv/bin/activate
+Remember to replace myvenv with your chosen virtualenv name!
+NOTE: sometimes source might not be available. In those cases try doing this instead:
+command-line
+$ . myvenv/bin/activate
+Before we do that, we should make sure we have the latest version of pip, the software that we use to install Django. In the console, run pip install --upgrade pip.
+Then run pip install django~=1.9.0 (note that we use a tilde followed by an equal sign: ~=) to install Django.
+command-line
+(myvenv) ~$ pip install django~=1.9.0
+Downloading/unpacking django==1.9
+Installing collected packages: django
+Successfully installed django
+Cleaning up...
+The names of some files and directories are very important for Django. You should not rename the files that we are about to create. Moving them to a different place is also not a good idea. Django needs to maintain a certain structure to be able to find important things.
+Remember to run everything in the virtualenv. If you don't see a prefix (myvenv) in your console, you need to activate your virtualenv. We explained how to do that in the Django installation chapter in the Working with virtualenv part. Typing myvenv\Scripts\activate on Windows or source myvenv/bin/activate on Mac OS X or Linux will do this for you.
+In your Mac OS X or Linux console, you should run the following command. Don't forget to add the period (or dot) . at the end!
+command-line
+(myvenv) ~/djangogirls$ django-admin startproject mysite .
+django-admin.py is a script that will create the directories and files for you. You should now have a directory structure which looks like this:
+djangogirls
+├───manage.py
+└───mysite
+        settings.py
+        urls.py
+        wsgi.py
+        __init__.py
+manage.py is a script that helps with management of the site. With it we will be able (amongst other things) to start a web server on our computer without installing anything else.
+The settings.py file contains the configuration of your website.
+Remember when we talked about a mail carrier checking where to deliver a letter? urls.py file contains a list of patterns used by urlresolver.
+Let's ignore the other files for now as we won't change them. The only thing to remember is not to delete them by accident!
+https://tutorial.djangogirls.org/en/django_start_project/
+
+Set up a database
+There's a lot of different database software that can store data for your site. We'll use the default one, sqlite3.
+This is already set up in this part of your mysite/settings.py file:
+mysite/settings.py
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+To create a database for our blog, let's run the following in the console: python manage.py migrate (we need to be in the djangogirls directory that contains the manage.py file). If that goes well, you should see something like this:
+command-line
+(myvenv) ~/djangogirls$ python manage.py migrate
+Starting the web server
+You need to be in the directory that contains the manage.py file (the djangogirls directory). In the console, we can start the web server by running python manage.py runserver:
+command-line
+(myvenv) ~/djangogirls$ python manage.py runserver
+https://tutorial.djangogirls.org/en/django_models/
+
+command-line
+(myvenv) ~/djangogirls$ python manage.py startapp blog
+You will notice that a new blog directory is created and it contains a number of files now. The directories and files in our project should look like this:
+djangogirls
+├── blog
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── migrations
+│   │   └── __init__.py
+│   ├── models.py
+│   ├── tests.py
+│   └── views.py
+├── db.sqlite3
+├── manage.py
+└── mysite
+    ├── __init__.py
+    ├── settings.py
+    ├── urls.py
+    └── wsgi.py
+After creating an application, we also need to tell Django that it should use it. We do that in the file mysite/settings.py. We need to find INSTALLED_APPS and add a line containing 'blog', just above ]. So the final product should look like this:
+mysite/settings.py
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'blog',
+]
+https://docs.djangoproject.com/en/1.9/ref/contrib/admin/
+
+
